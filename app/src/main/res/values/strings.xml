@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MachineTest</string>
+    <string name="title_listing">Categories</string>
+    <string name="productdata">ProductData</string>
+</resources>
