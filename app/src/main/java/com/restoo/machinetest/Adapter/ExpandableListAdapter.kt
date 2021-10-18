@@ -7,6 +7,7 @@ import android.view.ViewGroup
 
 import android.widget.BaseExpandableListAdapter
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.restoo.machinetest.Listner.ItemListner
@@ -42,9 +43,17 @@ class ExpandableListAdapter internal constructor(private val _context: Context, 
             ?.findViewById<View>(R.id.childname) as TextView
         val imgListChild = convertView
             ?.findViewById<View>(R.id.imgproduct) as ImageView
+        val iChildlayout = convertView
+            ?.findViewById<View>(R.id.child_layout) as RelativeLayout
         Glide.with(_context).load(childText.imageUrl).into(imgListChild)
         txtListChild.text = childText.title
         txtListChild.setOnClickListener(View.OnClickListener {
+            listner.onItemClick(groupPosition,childPosition)
+        })
+        imgListChild.setOnClickListener(View.OnClickListener {
+            listner.onItemClick(groupPosition,childPosition)
+        })
+        iChildlayout.setOnClickListener(View.OnClickListener {
             listner.onItemClick(groupPosition,childPosition)
         })
         return convertView
